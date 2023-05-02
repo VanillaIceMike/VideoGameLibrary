@@ -28,7 +28,9 @@ public:
     wxMenuBar* VGLMenu;
     // The Path to the file we have open
     wxString CurrentDocPath;
+    wxButton* homeButton;
     wxButton* goButton;
+    wxSearchCtrl* searchBar;
 
     DECLARE_EVENT_TABLE()
 };
@@ -42,6 +44,7 @@ enum
     MENU_Save,
     MENU_SaveAs,
     MENU_Quit,
+    BUTTON_Home = wxID_HIGHEST + 1,
     BUTTON_Go = wxID_HIGHEST + 2
 };
 

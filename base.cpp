@@ -1,6 +1,7 @@
 #include <wx/wxprec.h>
 #include <wx/image.h>
 #include <wx/wx.h>
+#include <wx/srchctrl.h>
 #ifndef WX_PRECOMP
 #endif
 
@@ -70,6 +71,10 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 	titleLabel->SetFont(titleFont);
 	mainSizer->Add(titleLabel, 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 10);
 
+	// Create the Home button and add it to the mainSizer
+	homeButton = new wxButton(this, BUTTON_Home, wxT("Home"), wxDefaultPosition, wxDefaultSize, 0);
+	mainSizer->Add(homeButton, 0, wxALL, 5);
+
 	// Create a wxBoxSizer for horizontal alignment of genre label and dropdown menu
 	wxBoxSizer* genreSizer = new wxBoxSizer(wxHORIZONTAL);
 
@@ -95,6 +100,10 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 	// Add the Go button
 	goButton = new wxButton(this, BUTTON_Go, wxT("Go"), wxDefaultPosition, wxDefaultSize, 0);
 	genreSizer->Add(goButton, 0, wxALL, 5);
+
+	// Add the search control
+	wxSearchCtrl* searchBar = new wxSearchCtrl(this, wxID_ANY);
+	genreSizer->Add(searchBar, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
 
 	Maximize(); // Maximize the window
 }
