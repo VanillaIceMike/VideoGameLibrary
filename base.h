@@ -2,6 +2,7 @@
 #define __BASE_H
 #include <wx/frame.h>
 #include <wx/textctrl.h>
+#include "genre_frame.h"
 
 class VGLApp : public wxApp // MainApp is the class for our application
 { // MainApp just acts as a container for the window,
@@ -20,11 +21,14 @@ public:
     void SaveFile(wxCommandEvent& event);
     void SaveFileAs(wxCommandEvent& event);
     void CloseFile(wxCommandEvent& event);
+    void OnGoButton(wxCommandEvent& event);
 
     wxTextCtrl* VGLEditBox;
+    wxChoice* genreChoice;
     wxMenuBar* VGLMenu;
     // The Path to the file we have open
     wxString CurrentDocPath;
+    wxButton* goButton;
 
     DECLARE_EVENT_TABLE()
 };
@@ -37,7 +41,8 @@ enum
     MENU_Close,
     MENU_Save,
     MENU_SaveAs,
-    MENU_Quit
+    MENU_Quit,
+    BUTTON_Go = wxID_HIGHEST + 2
 };
 
 BEGIN_EVENT_TABLE(VGLFrame, wxFrame)
@@ -47,6 +52,7 @@ BEGIN_EVENT_TABLE(VGLFrame, wxFrame)
     EVT_MENU(MENU_Save, VGLFrame::SaveFile)
     EVT_MENU(MENU_SaveAs, VGLFrame::SaveFileAs)
     EVT_MENU(MENU_Quit, VGLFrame::Quit)
+    EVT_BUTTON(BUTTON_Go, VGLFrame::OnGoButton)
 END_EVENT_TABLE()
 
 #endif

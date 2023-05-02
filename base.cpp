@@ -1,9 +1,12 @@
 #include <wx/wxprec.h>
-#ifndef WX_PRECOMP
+#include <wx/image.h>
 #include <wx/wx.h>
+#ifndef WX_PRECOMP
 #endif
 
 #include "base.h"
+#include "genre_frame.h"
+
 
 
 
@@ -11,12 +14,17 @@ IMPLEMENT_APP(VGLApp) // Initializes the MainApp class and tells our program
 // to run it
 bool VGLApp::OnInit()
 {
-    VGLFrame* VGLWin = new VGLFrame(wxT("Hello World!"), wxPoint(1, 1),
-        wxSize(300, 200)); // Create an instance of our frame, or window
-    VGLWin->Show(TRUE); // show the window
-    SetTopWindow(VGLWin);// and finally, set it as the main window
+	VGLFrame* VGLWin = new VGLFrame(wxT("The Video Game Library"), wxPoint(1, 1),
+		wxSize(300, 200)); // Create an instance of our frame, or window
+	VGLWin->Show(TRUE); // show the window
+	SetTopWindow(VGLWin);// and finally, set it as the main window
 
-    return TRUE;
+	// Load the icon and set it for the frame
+	wxIcon myIcon;
+	myIcon.LoadFile("Icon/icon.ico", wxBITMAP_TYPE_ICO);
+	VGLWin->SetIcon(myIcon);
+
+	return TRUE;
 }
 
 VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
@@ -49,9 +57,44 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 	VGLMenu->Append(FileMenu, _("&File"));
 	SetMenuBar(VGLMenu);
 
-	VGLEditBox = new wxTextCtrl(
-		this, TEXT_Main, _("Hi!"), wxDefaultPosition, wxDefaultSize,
-		wxTE_MULTILINE | wxTE_RICH, wxDefaultValidator, wxTextCtrlNameStr);
+	// Create a wxBoxSizer for vertical alignment of widgets
+	wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
+
+	// Load the custom font
+	wxFont customFont;
+	customFont.AddPrivateFont("Fonts/PressStart2P.ttf");
+	wxFont titleFont(24, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Press Start 2P"));
+
+	// Create the title with the desired font
+	wxStaticText* titleLabel = new wxStaticText(this, wxID_ANY, wxT("Video Game Library"), wxDefaultPosition, wxDefaultSize, 0);
+	titleLabel->SetFont(titleFont);
+	mainSizer->Add(titleLabel, 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 10);
+
+	// Create a wxBoxSizer for horizontal alignment of genre label and dropdown menu
+	wxBoxSizer* genreSizer = new wxBoxSizer(wxHORIZONTAL);
+
+	// Create the static text for "Genres of Video Games" and add it to the genreSizer
+	wxStaticText* genreLabel = new wxStaticText(this, wxID_ANY, wxT("Genres of Video Games:"), wxDefaultPosition, wxDefaultSize, 0);
+	genreSizer->Add(genreLabel, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
+
+	// Create the genre choice and add it to the genreSizer
+	genreChoice = new wxChoice(this, wxID_ANY);
+	genreChoice->Append("RPG");
+	genreChoice->Append("FPS");
+	genreChoice->Append("Racing");
+	genreChoice->Append("Real-Time Strategy");
+	genreSizer->Add(genreChoice, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
+
+	// Add the genreSizer to the mainSizer
+	mainSizer->Insert(1, genreSizer, 0, wxALL | wxALIGN_LEFT, 10);
+
+	// Set the sizer for the frame
+	SetSizer(mainSizer);
+
+
+	// Add the Go button
+	goButton = new wxButton(this, BUTTON_Go, wxT("Go"), wxDefaultPosition, wxDefaultSize, 0);
+	genreSizer->Add(goButton, 0, wxALL, 5);
 
 	Maximize(); // Maximize the window
 }
@@ -131,4 +174,20 @@ void VGLFrame::SaveFileAs(wxCommandEvent& WXUNUSED(event))
 void VGLFrame::Quit(wxCommandEvent& WXUNUSED(event))
 {
 	Close(TRUE); // Close the window
+}
+
+void VGLFrame::OnGoButton(wxCommandEvent& WXUNUSED(event))
+{
+	wxString genre = genreChoice->GetStringSelection();
+
+	if (!genre.IsEmpty())
+	{
+		wxString title = genre + wxT(" Page");
+		GenreFrame* genrePage = new GenreFrame(title);
+		genrePage->Show(true);
+	}
+	else
+	{
+		wxMessageBox(wxT("Please select a genre."), wxT("Error"), wxICON_ERROR | wxOK);
+	}
 }
