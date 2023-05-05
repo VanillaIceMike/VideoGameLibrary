@@ -1,0 +1,49 @@
+Counter Strike: Global Offensive	0	PC	Shooter	M	Valve/Hidden Path Entertainment
+Valorant	0	PC	Shooter	T	Riot Games
+Apex Legends	0	PC, XBOX, PS, Switch	Shooter	T	Respawn Entertainment
+Call of Duty: Modern Warfare II	69.99	PC, XBOX, PS	Shooter	M	Infinity Ward
+Dead Island 2 	59.99	PC, XBOX, PS	Shooter	M	Dambuster Studios
+Overwatch 2	0	PC, XBOX, PS, Switch	Shooter	T	Blizzard Entertainment
+Tom Clancy's Rainbow Six: Siege	19.99	PC, XBOX, PS	Shooter	M	Ubisoft Montreal 
+Destiny 2	0	PC, XBOX, PS	Shooter	T	Bungie
+Path of Exile	0	PC, XBOX, PS	Action & Adventure	M	Grinding Gear Games
+Genshin Impact 	0	PC, PS, Android, iOS	Action & Adventure	T	miHoYo
+Elden Ring	59.99	PC, XBOX, PS	Action & Adventure	M	FromSoftware
+Monster Hunter Rise 	39.99	PC, XBOX, PS, Switch	Action & Adventure	T	Capcom
+Cyberpunk 2077 	59.99	PC, XBOX, PS	Action & Adventure	M	CD Projekt Red
+Diablo IV	69.99	PC, XBOX, PS	Action & Adventure	M	Blizzard Team 3
+The Elder Scrolls Online 	19.99	PC, XBOX, PS	Action & Adventure	M	Zenimax Online Studios
+Black Desert Online	9.99	PC, XBOX, PS, Android, iOS	Action & Adventure	T	Pearl Abyss
+PowerWash Simulator	24.99	PC, XBOX, PS, Switch	Simulation	E 	FuturLab
+Microsoft Flight Simulator	59.99	PC, XBOX	Simulation	E 	Asobo Studio
+The Sims 4	0	PC, XBOX, PS	Simulation	T	Maxis
+PC Building Simulator	4.99	PC, XBOX, PS, Switch	Simulation	E	Claudiu Kiss/The Irregular Corporation 
+Cooking Simulator 	19.99	PC, XBOX, PS, Switch, Android	Simulation	E	Big Cheese Studio
+Farming Simulator 22	39.99	PC, XBOX, PS	Simulation	E	GIANTS Software
+Euro Truck Simulator 2	19.99	PC	Simulation	E	SCS Software
+Two Point Hospital 	29.99	PC, XBOX, PS, Switch	Simulation	E	Two Point Studios
+League of Legends	0	PC	MOBA	T	Riot Games
+Dota 2	0	PC	MOBA	T	Valve 
+Mobile Legends: Bang Bang	0	Android, iOS	MOBA	E	Moonton
+SMITE	0	PC, XBOX, PS, Switch	MOBA	T	Titan Forge Games
+Pokemon Unite	0	Switch, Android, iOS	MOBA	E	TiMi Studio Group 
+Heroes of the Storm 	0	PC	MOBA	T	Blizzard Entertainment
+Brawl Stars 	0	Android, iOS	MOBA	T	Supercell
+Arena of Valor	0	Switch, Android, iOS	MOBA	T	TiMi Studio Group 
+Starcraft 2	0	PC	Strategy	T	Blizzard Entertainment 
+XCOM 2	59.99	PC, XBOX, PS, Switch	Strategy	T	Firaxis Games/Feral Interactive
+Crusader Kings 3	49.99	PC, XBOX, PS	Strategy	T	Paradox Development Studio
+Total War: Warhammer 3	59.99	PC	Strategy	T	Creative Assembly
+Sid Meier's Civilization 6	59.99	PC, XBOX, PS, Switch	Strategy	E	Firaxis Games/Aspyr
+Stellaris	39.99	PC, XBOX, PS	Strategy	E	Paradox Development Studio
+Age of Empires 2: Definitive Edition	19.99	PC 	Strategy	T	Forgotten Empires/Tantalus Media/Wicked Witch
+Frostpunk	29.99	PC, XBOX, PS	Strategy	M	11 bit studios
+Super Smash Bros. Ultimate	59.99	Switch 	Fighting	E	Bandai Namco Studios/Sora Ltd. 
+Street Fighter 6	59.99	PC, XBOX, PS	Fighting	T	Capcom
+Tekken 7	39.99	PC, XBOX, PS	Fighting	T	Bandai Namco Studios/Arika
+Mortal Kombat 11 	49.99	PC, XBOX, PS, Switch	Fighting	M	NetherRealm Studios
+Guilty Gear: Strive	39.99	PC, XBOX, PS	Fighting	T	Arc System Works
+Brawlhalla	0	PC, XBOX, PS, Switch, Android, iOS	Fighting	E	Blue Mammoth Games
+MORDHAU	29.99	PC, XBOX, PS	Fighting	M	Triternion
+Naruto Shippuden: Ultimate Ninja Storm 4	59.99	PC, XBOX, PS, Switch	Fighting	T	CyberConnect2
+Soulcalibur VI	59.99	PX, XBOX, PS	Fighting	T	Bandai Namco Studios/Dimps

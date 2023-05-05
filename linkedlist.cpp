@@ -40,15 +40,21 @@ unsigned linked_list::listSize() const {
     return count;
 }
 
-void linked_list::append(std::string gameName, float price, std::string console, std::string genre, std::string esrbRating) {
+game& linked_list::operator[](int n) {
+    game* runner = head;
+    for (int i = 0; i < n; i++) runner = runner->next;
+    return *runner;
+}
+
+void linked_list::append(game newgame) {
     if(!head){
-        head = new game(gameName, price, console, genre, esrbRating);
+        head = new game(newgame);
         tail = head;
     }
     else{
-        tail->next = new game(gameName, price, console, genre, esrbRating);
+        tail->next = new game(newgame);
         tail = tail->next;
     }
-
-    return;
+    tail->setId(length);
+    length++;
 }

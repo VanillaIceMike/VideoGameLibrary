@@ -5,17 +5,20 @@ class game {
     private:
         std::string gameName;
         float price;
+        unsigned id;
  
     public:
         game *next;  
         gameSpec specs;
 
         game();
-        game(std::string, float, std::string, std::string, std::string);
+        game(std::string, float, gameSpec);
+        game(const game&);
 
         void setName(std::string);
         void setPrice(float);
+        void setId(unsigned);
 
-        std::string getName();
-        float getPrice();
+        std::string getName() const;
+        float getPrice() const;
 };

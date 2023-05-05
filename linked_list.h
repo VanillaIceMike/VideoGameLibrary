@@ -3,6 +3,7 @@
 class linked_list{
     private: 
         game *head, *tail;
+        unsigned length = 0;
 
     public:
         linked_list();
@@ -11,6 +12,7 @@ class linked_list{
 
         bool isEmpty() const;
         unsigned listSize() const;
+        game& operator[](int);
 
-        void append(std::string, float, std::string, std::string, std::string);
+        void append(game);
 };
