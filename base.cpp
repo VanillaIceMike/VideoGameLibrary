@@ -84,10 +84,13 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 
 	// Create the genre choice and add it to the genreSizer
 	genreChoice = new wxChoice(this, wxID_ANY);
-	genreChoice->Append("RPG");
-	genreChoice->Append("FPS");
+	genreChoice->Append("Shooter");
+	genreChoice->Append("Action/Adventure");
+	genreChoice->Append("Simulation");
+	genreChoice->Append("MOBA");
+	genreChoice->Append("Strategy");
+	genreChoice->Append("Fighting");
 	genreChoice->Append("Racing");
-	genreChoice->Append("Real-Time Strategy");
 	genreSizer->Add(genreChoice, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
 
 	// Add the genreSizer to the mainSizer
@@ -98,7 +101,7 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 
 
 	// Add the Go button
-	goButton = new wxButton(this, BUTTON_Go, wxT("Go"), wxDefaultPosition, wxDefaultSize, 0);
+	goButton = new wxButton(this, BUTTON_Go, wxT("Select Genre"), wxDefaultPosition, wxDefaultSize, 0);
 	genreSizer->Add(goButton, 0, wxALL, 5);
 
 	// Add the search control
