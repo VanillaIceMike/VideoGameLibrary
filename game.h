@@ -18,10 +18,10 @@ class game {
 
         void setName(std::string);
         void setPrice(float);
-        void setId(unsigned);
 
         std::string getName() const;
         float getPrice() const;
         gameSpec getSpecs() const;
         std::string getSearchName() const;
+        unsigned getId() const;
 };
