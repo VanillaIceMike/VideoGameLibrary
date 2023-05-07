@@ -15,4 +15,5 @@ class linked_list{
         game& operator[](int);
 
         void append(game);
+        void remove(int);
 };
