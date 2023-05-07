@@ -4,12 +4,13 @@
 class game {
     private:
         std::string gameName;
+        std::string searchName;
         float price;
         unsigned id;
+        gameSpec specs;
  
     public:
-        game *next;  
-        gameSpec specs;
+        game *next;
 
         game();
         game(std::string, float, gameSpec);
@@ -21,4 +22,5 @@ class game {
 
         std::string getName() const;
         float getPrice() const;
+        gameSpec getSpecs();
 };
