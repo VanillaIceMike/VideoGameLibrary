@@ -29,3 +29,8 @@ CatalogManager::CatalogManager() {
 
     infile.close();
 }
+
+linked_list CatalogManager::getCatalog()
+{
+    return catalog;
+}

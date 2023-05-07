@@ -1,3 +1,6 @@
+#ifndef CATALOGMANAGER_H
+#define CATALOGMANAGER_H
+
 #include "linked_list.h"
 
 class CatalogManager {
@@ -12,4 +15,7 @@ public:
     void addToWishlist(game);
     void sortPrice();
     void sortGenre();
+    linked_list getCatalog();
 };
+
+#endif // CATALOGMANAGER_H

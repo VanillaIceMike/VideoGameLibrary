@@ -1,5 +1,7 @@
 #include "game.h"
+#include "gameSpec.h"
 #include <string>
+#include <cctype>
 
 game::game(){
     
@@ -49,5 +51,5 @@ gameSpec game::getSpecs() const {
 }
 
 std::string getSearchName() const {
-    retrun searchName;
+    return searchName;
 }

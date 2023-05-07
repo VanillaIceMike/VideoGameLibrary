@@ -1,3 +1,6 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include <string>
 #include "gameSpec.h"
     
@@ -25,3 +28,5 @@ class game {
         std::string getSearchName() const;
         unsigned getId() const;
 };
+
+#endif // GAME_H

@@ -2,6 +2,7 @@
 #define __BASE_H
 #include <wx/frame.h>
 #include <wx/textctrl.h>
+#include "catalogManager.h"
 #include "genre_frame.h"
 
 class VGLApp : public wxApp // MainApp is the class for our application
@@ -31,7 +32,7 @@ public:
     wxButton* homeButton;
     wxButton* goButton;
     wxSearchCtrl* searchBar;
-
+    CatalogManager catalogManager;
     DECLARE_EVENT_TABLE()
 };
 
