@@ -22,5 +22,6 @@ class game {
 
         std::string getName() const;
         float getPrice() const;
-        gameSpec getSpecs();
+        gameSpec getSpecs() const;
+        std::string getSearchName() const;
 };
