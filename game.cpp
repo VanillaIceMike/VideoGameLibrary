@@ -32,8 +32,8 @@ void game::setPrice(float p){
     price = p;
 }
 
-void game::setId(unsigned n) {
-    id = n;
+unsigned game::getId() const{
+    return id;
 }
 
 std::string game::getName() const{
