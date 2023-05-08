@@ -59,3 +59,15 @@ linked_list& CatalogManager::getBlacklist() {
 linked_list& CatalogManager::getWishlist() {
     return wishlist;
 }
+
+void CatalogManager::sortAlpha() {
+
+}
+
+void CatalogManager::sortPrice() {
+
+}
+
+void CatalogManager::sortGenre() {
+    
+}
