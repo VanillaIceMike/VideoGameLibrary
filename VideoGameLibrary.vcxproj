@@ -19,12 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\base.h" />
-    <ClInclude Include="include\genre_frame.h" />
+    <ClInclude Include="base.h" />
+    <ClInclude Include="catalogManager.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="gameSpec.h" />
+    <ClInclude Include="genre_frame.h" />
+    <ClInclude Include="linked_list.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base.cpp" />
+    <ClCompile Include="catalogManager.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="gameSpec.cpp" />
     <ClCompile Include="genre_frame.cpp" />
+    <ClCompile Include="linked_list.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\..\..\..\..\..\..\Downloads\press_start_2p\PressStart2P.ttf" />

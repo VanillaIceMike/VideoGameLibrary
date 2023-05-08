@@ -14,6 +14,6 @@ class linked_list{
         unsigned listSize() const;
         game& operator[](int);
 
-        void remove(int);
+        void remove(unsigned);
         void append(game);
 };

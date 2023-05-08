@@ -18,18 +18,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\base.h">
+    <ClInclude Include="catalogManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\genre_frame.h">
+    <ClInclude Include="base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameSpec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="genre_frame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="linked_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\base.cpp">
+    <ClCompile Include="base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\genre_frame.cpp">
+    <ClCompile Include="genre_frame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="catalogManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="linked_list.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

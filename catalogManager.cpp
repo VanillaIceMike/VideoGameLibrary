@@ -36,7 +36,7 @@ void CatalogManager::addToCatalog(game g) {
 
 void CatalogManager::addToBlacklist(game g) {
     blacklist.append(g);
-    for (int i = 0; i < catalog.listSize(); i++) {
+    for (unsigned i = 0; i < catalog.listSize(); i++) {
         if (catalog[i].getId() == g.getId()) {
             catalog.remove(i);
             return;
