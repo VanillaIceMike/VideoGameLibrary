@@ -30,7 +30,32 @@ CatalogManager::CatalogManager() {
     infile.close();
 }
 
-linked_list CatalogManager::getCatalog()
-{
+void CatalogManager::addToCatalog(game g) {
+    catalog.append(g);
+}
+
+void CatalogManager::addToBlacklist(game g) {
+    blacklist.append(g);
+    for (int i = 0; i < catalog.listSize(); i++) {
+        if (catalog[i].getId() == g.getId()) {
+            catalog.remove(i);
+            return;
+        }
+    }
+}
+
+void CatalogManager::addToWishlist(game g) {
+    wishlist.append(g);
+}
+
+linked_list& CatalogManager::getCatalog() {
     return catalog;
+}
+
+linked_list& CatalogManager::getBlacklist() {
+    return blacklist;
+}
+
+linked_list& CatalogManager::getWishlist() {
+    return wishlist;
 }
