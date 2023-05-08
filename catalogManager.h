@@ -13,6 +13,7 @@ public:
     void addToCatalog(game);
     void addToBlacklist(game);
     void addToWishlist(game);
+    void sortAlpha();
     void sortPrice();
     void sortGenre();
     linked_list& getCatalog();
