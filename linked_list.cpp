@@ -84,6 +84,7 @@ void linked_list::remove(unsigned r) {
 
     game* runner = head;
     game* prev = nullptr;
+
     for (unsigned i = 0; i < r; i++) {
         prev = runner;
         runner = runner->next;

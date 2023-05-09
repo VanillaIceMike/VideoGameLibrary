@@ -35,7 +35,13 @@
     <ClCompile Include="linked_list.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="..\..\..\..\..\..\..\Downloads\press_start_2p\PressStart2P.ttf" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="catalogManager.exe" />
+    <None Include="linkedlist.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="games.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

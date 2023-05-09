@@ -25,6 +25,7 @@ class game {
         void setPrice(float);
         void setId(unsigned);
 
+
         std::string getName() const;
         float getPrice() const;
         gameSpec getSpecs() const;

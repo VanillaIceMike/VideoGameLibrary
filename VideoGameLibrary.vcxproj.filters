@@ -45,6 +45,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="catalogManager.cpp">
+<<<<<<< HEAD
+=======
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="game.cpp">
@@ -54,6 +56,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="linked_list.cpp">
+>>>>>>> a2ae984c5e20d2eafe7e5f146127829d0b178d91
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

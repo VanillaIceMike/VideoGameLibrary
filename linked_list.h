@@ -8,7 +8,7 @@ class linked_list{
     public:
         linked_list();
 
-        ~linked_list();
+        virtual ~linked_list();
 
         bool isEmpty() const;
         unsigned listSize() const;

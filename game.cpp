@@ -1,4 +1,5 @@
 #include "game.h"
+#include "gameSpec.h"
 #include <string>
 #include <cctype>
 
