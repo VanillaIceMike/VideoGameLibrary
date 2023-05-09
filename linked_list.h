@@ -12,7 +12,7 @@ class linked_list{
 
         bool isEmpty() const;
         unsigned listSize() const;
-        game& operator[](int) const;
+        game& operator[](unsigned) const;
         void operator=(const linked_list&);
 
         void remove(unsigned);
