@@ -21,6 +21,7 @@ class game {
 
         void setName(std::string);
         void setPrice(float);
+        void setId(unsigned);
 
         void setId(unsigned);
 

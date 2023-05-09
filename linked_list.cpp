@@ -60,14 +60,18 @@ void linked_list::append(game newgame) {
 }
 
 
-void linked_list::remove(int r) {
+void linked_list::remove(unsigned r) {
     if (r > length) return;
 
     length--;
 
     game* runner = head;
     game* prev = nullptr;
+<<<<<<< HEAD
     for (int i = 0; i < r; i++) {
+=======
+    for (unsigned i = 0; i < r; i++) {
+>>>>>>> a2ae984c5e20d2eafe7e5f146127829d0b178d91
         prev = runner;
         runner = runner->next;
     }

@@ -36,7 +36,11 @@ void CatalogManager::addToCatalog(game g) {
 
 void CatalogManager::addToBlacklist(game g) {
     blacklist.append(g);
+<<<<<<< HEAD
     for (int i = 0; i < catalog.listSize(); i++) {
+=======
+    for (unsigned i = 0; i < catalog.listSize(); i++) {
+>>>>>>> a2ae984c5e20d2eafe7e5f146127829d0b178d91
         if (catalog[i].getId() == g.getId()) {
             catalog.remove(i);
             return;
@@ -58,4 +62,19 @@ linked_list& CatalogManager::getBlacklist() {
 
 linked_list& CatalogManager::getWishlist() {
     return wishlist;
+<<<<<<< HEAD
+=======
+}
+
+void CatalogManager::sortAlpha() {
+
+}
+
+void CatalogManager::sortPrice() {
+
+}
+
+void CatalogManager::sortGenre() {
+    
+>>>>>>> a2ae984c5e20d2eafe7e5f146127829d0b178d91
 }
