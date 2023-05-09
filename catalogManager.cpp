@@ -1,5 +1,6 @@
 #include "catalogManager.h"
 #include <fstream>
+#include <iostream>
 
 CatalogManager::CatalogManager() {
     std::ifstream infile;
@@ -22,7 +23,14 @@ CatalogManager::CatalogManager() {
         std::getline(infile, esrbRating, '\t');
         std::getline(infile, developer, '\t');
 
-        price = stof(stringPrice);
+        try {
+            price = stof(stringPrice);
+        }
+        catch (const std::invalid_argument& e) {
+            // You can print the error message and continue with the next iteration or exit the program
+            std::cerr << "Invalid price format: " << stringPrice << std::endl;
+            continue;
+        }
 
         catalog.append(game(name, price, gameSpec(console, genre, esrbRating, developer)));
     }
@@ -36,19 +44,16 @@ void CatalogManager::addToCatalog(game g) {
 
 void CatalogManager::addToBlacklist(game g) {
     blacklist.append(g);
-<<<<<<< HEAD
-    for (int i = 0; i < catalog.listSize(); i++) {
-=======
-    for (unsigned i = 0; i < catalog.listSize(); i++) {
->>>>>>> a2ae984c5e20d2eafe7e5f146127829d0b178d91
-        if (catalog[i].getId() == g.getId()) {
-            catalog.remove(i);
+    for (unsigned j = 0; j < catalog.listSize(); j++) {
+        if (catalog[j].getId() == g.getId()) {
+            catalog.remove(j);
             return;
         }
     }
 }
 
-void CatalogManager::addToWishlist(game g) {
+void CatalogManager::addToWishlist(game g) 
+{
     wishlist.append(g);
 }
 

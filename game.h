@@ -23,8 +23,6 @@ class game {
         void setPrice(float);
         void setId(unsigned);
 
-        void setId(unsigned);
-
 
         std::string getName() const;
         float getPrice() const;
