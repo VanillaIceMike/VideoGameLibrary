@@ -4,9 +4,11 @@
 linked_list::linked_list() {
     head = nullptr;
     tail = nullptr;
+    length = 0;
 }
 
 linked_list::~linked_list() {
+    length = 0;
     game* runner;
 
     while(head != nullptr){
@@ -40,10 +42,25 @@ unsigned linked_list::listSize() const {
     return count;
 }
 
-game& linked_list::operator[](int n) {
+void linked_list::clearList() {
+    int end = length + 1;
+    for (int i = 0; i < end; i++) {
+        remove(0);
+    }
+}
+
+game& linked_list::operator[](int n) const {
+    if (n > length) return;
     game* runner = head;
     for (int i = 0; i < n; i++) runner = runner->next;
     return *runner;
+}
+
+void linked_list::operator=(const linked_list& l) {
+    unsigned end = l.listSize() + 1;
+    for (unsigned i = 0; i < end; i++) {
+        append(l[i]);
+    }
 }
 
 void linked_list::append(game newgame) {
@@ -88,4 +105,12 @@ void linked_list::remove(unsigned r) {
 
     prev->next = runner->next;
     delete runner;
+}
+
+void linked_list::swap(unsigned first, unsigned second) {
+    if (first > length || second > length) return;
+
+    game temp = (*this)[first];
+    (*this)[first] = (*this)[second];
+    (*this)[second] = temp;
 }
