@@ -72,6 +72,35 @@ void CatalogManager::sortGenre() {
     
 }
 
-linked_list& CatalogManager::search(std::string) {
+linked_list& CatalogManager::searchCatalog(std::string s) {
+    linked_list list;
+    unsigned end = catalog.listSize() + 1;
+    for (unsigned i = 0; i < end; i++) {
+        if (catalog[i].getSearchName().find(s) != std::string::npos) {
+            list.append(catalog[i]);
+        }
+    }
+    return list;
+}
 
+linked_list& CatalogManager::searchBlacklist(std::string s) {
+    linked_list list;
+    unsigned end = blacklist.listSize() + 1;
+    for (unsigned i = 0; i < end; i++) {
+        if (blacklist[i].getSearchName().find(s) != std::string::npos) {
+            list.append(blacklist[i]);
+        }
+    }
+    return list;
+}
+
+linked_list& CatalogManager::searchWishlist(std::string s) {
+    linked_list list;
+    unsigned end = wishlist.listSize() + 1;
+    for (unsigned i = 0; i < end; i++) {
+        if (wishlist[i].getSearchName().find(s) != std::string::npos) {
+            list.append(wishlist[i]);
+        }
+    }
+    return list;
 }
