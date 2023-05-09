@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base.cpp" />
+    <ClCompile Include="catalogManager.cpp" />
     <ClCompile Include="genre_frame.cpp" />
   </ItemGroup>
   <ItemGroup>

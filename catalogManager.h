@@ -15,7 +15,9 @@ public:
     void addToWishlist(game);
     void sortPrice();
     void sortGenre();
-    linked_list getCatalog();
+    linked_list& getCatalog();
+    linked_list& getBlacklist();
+    linked_list& getWishlist();
 };
 
 #endif // CATALOGMANAGER_H

@@ -1,3 +1,5 @@
+#ifndef GAMESPEC_H // Define a unique identifier for the header guard
+#define GAMESPEC_H
 #include <string>
 
 class gameSpec{
@@ -21,3 +23,5 @@ class gameSpec{
         std::string getEsrbRating() const;
         std::string getDeveloper() const;
 };
+
+#endif // GAMESPEC_H

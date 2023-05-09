@@ -66,7 +66,7 @@ void linked_list::remove(int r) {
     length--;
 
     game* runner = head;
-    game* prev;
+    game* prev = nullptr;
     for (int i = 0; i < r; i++) {
         prev = runner;
         runner = runner->next;

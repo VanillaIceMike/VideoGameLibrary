@@ -34,6 +34,15 @@ void game::setPrice(float p){
     price = p;
 }
 
+<<<<<<< HEAD
+void game::setId(unsigned newId) {
+    id = newId;
+=======
+void game::setId(unsigned u) {
+    id = u;
+>>>>>>> 73c4b8e7bf742d85c408c0b67c8733eaa9a67373
+}
+
 unsigned game::getId() const{
     return id;
 }
@@ -50,6 +59,6 @@ gameSpec game::getSpecs() const {
     return specs;
 }
 
-std::string getSearchName() const {
+std::string game::getSearchName() const {
     return searchName;
 }

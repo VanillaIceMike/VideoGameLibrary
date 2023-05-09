@@ -9,7 +9,7 @@ linked_list::linked_list() {
 linked_list::~linked_list() {
     game* runner;
 
-    while(head != nullptr){
+    while(head){
         runner = head;
         head = head->next;
         delete runner;

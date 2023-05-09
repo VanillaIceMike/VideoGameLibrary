@@ -26,10 +26,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\base.cpp">
+    <ClCompile Include="base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\genre_frame.cpp">
+    <ClCompile Include="genre_frame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="catalogManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
