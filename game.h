@@ -19,6 +19,8 @@ class game {
         game(std::string, float, gameSpec);
         game(const game&);
 
+        void operator=(const game&);
+
         void setName(std::string);
         void setPrice(float);
         void setId(unsigned);

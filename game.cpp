@@ -24,6 +24,15 @@ game::game(const game& newgame) {
     specs = newgame.getSpecs();
 }
 
+void game::operator=(const game& newgame) {
+    gameName = newgame.getName();
+    searchName = newgame.getSearchName();
+    price = newgame.getPrice();
+    id = newgame.getId();
+
+    specs = newgame.getSpecs();
+}
+
 void game::setName(std::string name){
     gameName = name;
     for (int i = 0; i < name.length(); i++) name[i] = tolower(name[i]);

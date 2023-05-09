@@ -16,6 +16,7 @@ public:
     void sortAlpha();
     void sortPrice();
     void sortGenre();
+    linked_list& search(std::string);
     linked_list& getCatalog();
     linked_list& getBlacklist();
     linked_list& getWishlist();

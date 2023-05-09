@@ -70,7 +70,7 @@ linked_list& CatalogManager::getWishlist() {
 }
 
 void CatalogManager::sortAlpha() {
-
+    
 }
 
 void CatalogManager::sortPrice() {
@@ -79,4 +79,8 @@ void CatalogManager::sortPrice() {
 
 void CatalogManager::sortGenre() {
     
+}
+
+linked_list& CatalogManager::search(std::string) {
+
 }
