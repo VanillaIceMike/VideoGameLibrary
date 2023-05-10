@@ -23,7 +23,18 @@ CatalogManager::CatalogManager() {
         std::getline(infile, esrbRating, '\t');
         std::getline(infile, developer);
 
+<<<<<<< HEAD
         price = stof(stringPrice);
+=======
+        try {
+            price = stof(stringPrice);
+        }
+        catch (const std::invalid_argument& e) {
+            // You can print the error message and continue with the next iteration or exit the program
+            std::cerr << "Invalid price format: " << stringPrice << " (Error: " << e.what() << ")" << std::endl;
+            continue;
+        }
+>>>>>>> a5f19de1318f9c745333c6dcb485fe6c2cd4c591
 
         catalog.append(game(name, price, gameSpec(console, genre, esrbRating, developer)));
     }
