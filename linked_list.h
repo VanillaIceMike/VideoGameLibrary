@@ -20,5 +20,5 @@ class linked_list{
         void append(game);
         void swap(unsigned, unsigned);
     
-        game*& getHead() const;
+        game*& getHead();
 };
