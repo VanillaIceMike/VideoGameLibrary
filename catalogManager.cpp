@@ -28,7 +28,7 @@ CatalogManager::CatalogManager() {
         }
         catch (const std::invalid_argument& e) {
             // You can print the error message and continue with the next iteration or exit the program
-            std::cerr << "Invalid price format: " << stringPrice << std::endl;
+            std::cerr << "Invalid price format: " << stringPrice << " (Error: " << e.what() << ")" << std::endl;
             continue;
         }
 
