@@ -66,36 +66,24 @@ linked_list& CatalogManager::getWishlist() {
 }
 
 void CatalogManager::sortAlpha() {
-    game* head = &catalog[0];
-    MergeSort(&head, 0);
-    head = &blacklist[0];
-    MergeSort(&head, 0);
-    head = &wishlist[0];
-    MergeSort(&head, 0);
-    head = &filteredCatalog[0];
-    MergeSort(&head, 0);
+    MergeSort(&catalog.getHead(), 0);
+    MergeSort(&blacklist.getHead(), 0);
+    MergeSort(&wishlist.getHead(), 0);
+    MergeSort(&filteredCatalog.getHead(), 0);
 }
 
 void CatalogManager::sortPrice() {
-    game* head = &catalog[0];
-    MergeSort(&head, 1);
-    head = &blacklist[0];
-    MergeSort(&head, 1);
-    head = &wishlist[0];
-    MergeSort(&head, 1);
-    head = &filteredCatalog[0];
-    MergeSort(&head, 1);
+    MergeSort(&catalog.getHead(), 1);
+    MergeSort(&blacklist.getHead(), 1);
+    MergeSort(&wishlist.getHead(), 1);
+    MergeSort(&filteredCatalog.getHead(), 1);
 }
 
 void CatalogManager::sortGenre() {
-    game* head = &catalog[0];
-    MergeSort(&head, 2);
-    head = &blacklist[0];
-    MergeSort(&head, 2);
-    head = &wishlist[0];
-    MergeSort(&head, 2);
-    head = &filteredCatalog[0];
-    MergeSort(&head, 2);
+    MergeSort(&catalog.getHead(), 2);
+    MergeSort(&blacklist.getHead(), 2);
+    MergeSort(&wishlist.getHead(), 2);
+    MergeSort(&filteredCatalog.getHead(), 2);
 }
 
 linked_list& CatalogManager::searchCatalog(std::string s) {
