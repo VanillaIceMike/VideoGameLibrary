@@ -27,23 +27,11 @@ bool linked_list::isEmpty() const {
 }
 
 unsigned linked_list::listSize() const {
-    if(!head){
-        return 0;
-    }
-    
-    game *runner = head;
-    int count = 1;
-
-    while(runner != tail){
-        runner = runner->next;
-        count++;
-    }
-
-    return count;
+    return length;
 }
 
 void linked_list::clearList() {
-    int end = length + 1;
+    int end = length;
     for (int i = 0; i < end; i++) {
         remove(0);
     }
@@ -56,7 +44,7 @@ game& linked_list::operator[](unsigned n) const {
 }
 
 void linked_list::operator=(const linked_list& l) {
-    unsigned end = l.listSize() + 1;
+    unsigned end = l.listSize();
     for (unsigned i = 0; i < end; i++) {
         append(l[i]);
     }
@@ -77,7 +65,7 @@ void linked_list::append(game newgame) {
 
 
 void linked_list::remove(unsigned r) {
-    if (r > length) return;
+    if (r >= length) return;
 
     length--;
 
@@ -108,7 +96,7 @@ void linked_list::remove(unsigned r) {
 }
 
 void linked_list::swap(unsigned first, unsigned second) {
-    if (first > length || second > length) return;
+    if (first >= length || second >= length) return;
 
     game temp = (*this)[first];
     (*this)[first] = (*this)[second];

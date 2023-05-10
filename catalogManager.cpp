@@ -21,16 +21,9 @@ CatalogManager::CatalogManager() {
         std::getline(infile, console, '\t');
         std::getline(infile, genre, '\t');
         std::getline(infile, esrbRating, '\t');
-        std::getline(infile, developer, '\t');
+        std::getline(infile, developer);
 
-        try {
-            price = stof(stringPrice);
-        }
-        catch (const std::invalid_argument& e) {
-            // You can print the error message and continue with the next iteration or exit the program
-            std::cerr << "Invalid price format: " << stringPrice << std::endl;
-            continue;
-        }
+        price = stof(stringPrice);
 
         catalog.append(game(name, price, gameSpec(console, genre, esrbRating, developer)));
     }
@@ -45,15 +38,14 @@ void CatalogManager::addToCatalog(game g) {
 void CatalogManager::addToBlacklist(game g) {
     blacklist.append(g);
     for (unsigned j = 0; j < catalog.listSize(); j++) {
-        if (catalog[j].getId() == g.getId()) {
+        if (catalog[j].getName() == g.getName()) {
             catalog.remove(j);
             return;
         }
     }
 }
 
-void CatalogManager::addToWishlist(game g) 
-{
+void CatalogManager::addToWishlist(game g) {
     wishlist.append(g);
 }
 
@@ -81,35 +73,35 @@ void CatalogManager::sortGenre() {
     
 }
 
-linked_list CatalogManager::searchCatalog(std::string s) {
-    linked_list list;
-    unsigned end = catalog.listSize() + 1;
+linked_list& CatalogManager::searchCatalog(std::string s) {
+    filteredCatalog.clearList();
+    unsigned end = catalog.listSize();
     for (unsigned i = 0; i < end; i++) {
         if (catalog[i].getSearchName().find(s) != std::string::npos) {
-            list.append(catalog[i]);
+            filteredCatalog.append(catalog[i]);
         }
     }
-    return list;
+    return filteredCatalog;
 }
 
-linked_list CatalogManager::searchBlacklist(std::string s) {
-    linked_list list;
-    unsigned end = blacklist.listSize() + 1;
+linked_list& CatalogManager::searchBlacklist(std::string s) {
+    filteredCatalog.clearList();
+    unsigned end = blacklist.listSize();
     for (unsigned i = 0; i < end; i++) {
         if (blacklist[i].getSearchName().find(s) != std::string::npos) {
-            list.append(blacklist[i]);
+            filteredCatalog.append(blacklist[i]);
         }
     }
-    return list;
+    return filteredCatalog;
 }
 
-linked_list CatalogManager::searchWishlist(std::string s) {
-    linked_list list;
-    unsigned end = wishlist.listSize() + 1;
+linked_list& CatalogManager::searchWishlist(std::string s) {
+    filteredCatalog.clearList();
+    unsigned end = wishlist.listSize();
     for (unsigned i = 0; i < end; i++) {
         if (wishlist[i].getSearchName().find(s) != std::string::npos) {
-            list.append(wishlist[i]);
+            filteredCatalog.append(wishlist[i]);
         }
     }
-    return list;
+    return filteredCatalog;
 }

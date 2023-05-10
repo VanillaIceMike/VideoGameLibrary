@@ -8,6 +8,7 @@ private:
     linked_list catalog;
     linked_list blacklist;
     linked_list wishlist;
+    linked_list filteredCatalog;
 public:
     CatalogManager();
     void addToCatalog(game);
@@ -16,9 +17,9 @@ public:
     void sortAlpha();
     void sortPrice();
     void sortGenre();
-    linked_list searchCatalog(std::string);
-    linked_list searchBlacklist(std::string);
-    linked_list searchWishlist(std::string);
+    linked_list& searchCatalog(std::string);
+    linked_list& searchBlacklist(std::string);
+    linked_list& searchWishlist(std::string);
     linked_list& getCatalog();
     linked_list& getBlacklist();
     linked_list& getWishlist();
