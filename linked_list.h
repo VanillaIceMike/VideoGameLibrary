@@ -19,4 +19,6 @@ class linked_list{
         void clearList();
         void append(game);
         void swap(unsigned, unsigned);
+    
+        game* getHead() const;
 };
