@@ -32,8 +32,12 @@ public:
     void OnGoButton(wxCommandEvent& event);
     void OnGameSelected(wxCommandEvent& event);
     void OnHomeButton(wxCommandEvent& event);
+    void OnSearchButton(wxCommandEvent& event);
     void OnBlackListButton(wxCommandEvent& event);
     void OnWishListButton(wxCommandEvent& event);
+    void OnGameRightClick(wxContextMenuEvent& event);
+    void OnAddToWishList(wxCommandEvent& event);
+    void OnAddToBlackList(wxCommandEvent& event);
     void LoadGames();
 
 
@@ -69,7 +73,9 @@ enum
     BUTTON_WishList,
     BUTTON_BlackList,
     BUTTON_Go,
-    LISTBOX_GameList
+    LISTBOX_GameList,
+    ID_AddToWishList,
+    ID_AddToBlackList
 
 };
 

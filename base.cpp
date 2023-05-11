@@ -9,8 +9,6 @@
 #include "genre_frame.h"
 
 
-
-
 IMPLEMENT_APP(VGLApp) // Initializes the MainApp class and tells our program
 // to run it
 bool VGLApp::OnInit()
@@ -125,10 +123,15 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 
 	// Add the search control
 	wxSearchCtrl* searchBar = new wxSearchCtrl(this, wxID_ANY);
+	searchBar->ShowSearchButton(true);
 	genreSizer->Add(searchBar, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
+
+	searchBar->Bind(wxEVT_SEARCHCTRL_SEARCH_BTN, &VGLFrame::OnSearchButton, this);
 
 	gameListBox = new wxListBox(this, LISTBOX_GameList, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_SINGLE);
 	mainSizer->Add(gameListBox, 1, wxALL | wxEXPAND, 5);
+
+	gameListBox->Bind(wxEVT_CONTEXT_MENU, &VGLFrame::OnGameRightClick, this);
 
 	LoadGames();
 
@@ -249,6 +252,13 @@ void VGLFrame::OnHomeButton(wxCommandEvent& WXUNUSED(event))
 	wxMessageBox("Home button clicked", "Info", wxOK | wxICON_INFORMATION);
 }
 
+void VGLFrame::OnSearchButton(wxCommandEvent& WXUNUSED(event))
+{
+	// Update the homepage with wishlist information
+	// ... (your code here)
+	wxMessageBox("Home button clicked", "Info", wxOK | wxICON_INFORMATION);
+}
+
 void VGLFrame::LoadGames() {
 	linked_list& catalog = catalogManager.getCatalog();
 	unsigned catalogSize = catalog.listSize();
@@ -296,5 +306,45 @@ void VGLFrame::OnGameSelected(wxCommandEvent& event)
 		gameFrame->SetSizer(gameInfoSizer);
 		gameFrame->Layout();
 		gameFrame->Show(true);
+	}
+}
+
+void VGLFrame::OnGameRightClick(wxContextMenuEvent& event)
+{
+	// Check if a game is selected
+	int selectedGameIndex = gameListBox->GetSelection();
+	if (selectedGameIndex != wxNOT_FOUND)
+	{
+		// Create a popup menu
+		wxMenu contextMenu;
+		contextMenu.Append(ID_AddToWishList, wxT("Add to Wishlist"));
+		contextMenu.Append(ID_AddToBlackList, wxT("Add to Blacklist"));  // Added Blacklist option
+
+		// Bind the menu item to an event handler
+		contextMenu.Bind(wxEVT_MENU, &VGLFrame::OnAddToWishList, this, ID_AddToWishList);
+		contextMenu.Bind(wxEVT_MENU, &VGLFrame::OnAddToBlackList, this, ID_AddToBlackList);  // Bind Blacklist option
+
+		// Popup the menu
+		PopupMenu(&contextMenu);
+	}
+}
+
+void VGLFrame::OnAddToWishList(wxCommandEvent& event)
+{
+	int selectedGameIndex = gameListBox->GetSelection();
+	if (selectedGameIndex != wxNOT_FOUND)
+	{
+		game selectedGame = catalogManager.getCatalog()[selectedGameIndex];
+		// Add the selected game to the wishlist
+	}
+}
+
+void VGLFrame::OnAddToBlackList(wxCommandEvent& event)
+{
+	int selectedGameIndex = gameListBox->GetSelection();
+	if (selectedGameIndex != wxNOT_FOUND)
+	{
+		game selectedGame = catalogManager.getCatalog()[selectedGameIndex];
+		// Add the selected game to the wishlist
 	}
 }
