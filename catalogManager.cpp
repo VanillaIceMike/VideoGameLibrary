@@ -93,6 +93,8 @@ void CatalogManager::sortGenre() {
 }
 
 linked_list& CatalogManager::searchCatalog(std::string s) {
+    for (int i = 0; i < s.length(); i++) s[i] = tolower(s[i]);
+
     filteredCatalog.clearList();
     unsigned end = catalog.listSize();
     for (unsigned i = 0; i < end; i++) {
@@ -104,6 +106,8 @@ linked_list& CatalogManager::searchCatalog(std::string s) {
 }
 
 linked_list& CatalogManager::searchBlacklist(std::string s) {
+    for (int i = 0; i < s.length(); i++) s[i] = tolower(s[i]);
+
     filteredCatalog.clearList();
     unsigned end = blacklist.listSize();
     for (unsigned i = 0; i < end; i++) {
@@ -115,6 +119,8 @@ linked_list& CatalogManager::searchBlacklist(std::string s) {
 }
 
 linked_list& CatalogManager::searchWishlist(std::string s) {
+    for (int i = 0; i < s.length(); i++) s[i] = tolower(s[i]);
+
     filteredCatalog.clearList();
     unsigned end = wishlist.listSize();
     for (unsigned i = 0; i < end; i++) {
