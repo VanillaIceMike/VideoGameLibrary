@@ -219,7 +219,7 @@ void VGLFrame::OnGoButton(wxCommandEvent& WXUNUSED(event))
 	if (!genre.IsEmpty())
 	{
 		wxString title = genre + wxT(" Page");
-		GenreFrame* genrePage = new GenreFrame(title);
+		GenreFrame* genrePage = new GenreFrame(title, genre, catalogManager);
 		genrePage->Show(true);
 	}
 	else
