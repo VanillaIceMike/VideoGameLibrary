@@ -47,6 +47,54 @@ Brawlhalla	0	PC, XBOX, PS, Switch, Android, iOS	Fighting	E	Blue Mammoth Games
 MORDHAU	29.99	PC, XBOX, PS	Fighting	M	Triternion
 Naruto Shippuden: Ultimate Ninja Storm 4	59.99	PC, XBOX, PS, Switch	Fighting	T	CyberConnect2
 Soulcalibur VI	59.99	PC, XBOX, PS	Fighting	T	Bandai Namco Studios/Dimps
-Forza Horizon 5	59.99	PC, XBOX	Racing	E	Xbox Game Studios
+Forza Horizon 5	59.99	PC, XBOX	Racing	E	Playground Games
 Halo Infinite	0.00	PC,XBOX	Shooter	T	343 industries
+Deep Rock Galactic	29.99	PC,XBOX,PS	Shooter	T	Ghost Ship Games
+Hades	24.99	PC,XBOX,PS,Switch	Action/Adventure	T	Supergiant games
+Mario Kart 8 Deluxe	59.99	Switch	Racing	E	Nintendo
+Gran Turismo 7	69.99	PS	Racing	E	Polyphony Digital
+Need for Speed Unbound	29.99	PC,PS	Racing	T	Electronic Arts
+The Legend of Zelda: Tears of the Kingdom	69.99	Switch	Action/Adventure	E	Nintendo
+Doom Eternal	39.99	PC,XBOX,PS,Switch	Shooter	M	Panic Button Games & id Software
+Splatoon 3	59.99	Switch	Shooter	E	Nintendo
+Stardew Valley	14.99	PC,XBOX,PS,Switch	Simulation	E	ConcernedApe
+Animal Crossing: New Horizons	59.99	Switch	Simulation	E	Nintendo
+Goat Simulator	9.99	PC,XBOX,PS,Switch	Simulation	T	Coffee Stain Studios
+Cities: Skylines	29.99	PC,XBOX,PS,Switch	Simulation	E	Colossal Order
+Planet Coaster	44.99	PC,XBOX,PS	Simulation	E	Frontier Developments plc
+Railway Empire	22.99	PC,XBOX,PS,Switch	Simulation	E	Kalypso Media
+Tabletop Simulator	19.99	PC	Simulation	E	Beserk Games
+Roblox	0.00	PC,XBOX	Simulation	E	Roblox Corporation
+The Legend of Zelda: Breath of the Wild	59.99	Switch	Action/Adventure	E	Nintendo
+Europa Universalis IV	39.99	PC,XBOX,PS	Strategy	T	Paradox Development Studio
+Multiversus	0.00	PC,XBOX,PS	Fighting	T	Player First Games
+Honkai Star Rail	0.00	PC,PS	Action/Adventure	T	miHoYo
+Fortnite	0.00	PC,XBOX,PS,Switch	Shooter	T	Epic  Games
+God of War:Ragnarok	69.99	PS	Action/Adventure	M	Santa Monica Studio
+God of War	49.99	PC,PS	Action/Adventure	M	Santa Monica Studio
+Horizon Forbidden West	59.99	PS	Action/Adventure	T	Guerilla Games
+Horizon Zero Dawn	49.99	PC,PS	Action/Adventure	T	Guerilla Games
+The Witcher 3: Wild Hunt	39.99	PC,XBOX,PS	Action/Adventure	M	CD Projekt Red
+Red Dead Redemption 2	59.99	XBOX,PS	Action/Adventure	M	Rockstar Games
+Grand Theft Auto V	39.99	PC,XBOX,PS	Action/Adventure	M	Rockstar Games
+Star Wars Jedi: Survivor	69.99	PC,XBOX,PS	Action/Adventure	T	Respawn Entertainment
+Hogwarts Legacy	69.99	PC,XBOX,PS	Action/Adventure	T	Avalanche Software
+The Last of Us Part II	39.99	PS	Action/Adventure	M	Naughty Dog
+The Last of Us	39.99	PS	Action/Adventure	M	Naughty Dog
+Minecraft	29.99	PC,XBOX,PS,Switch,Ios	Action/Adventure	E	Mojang Studios
+Omori	19.99	PC,PS,Switch	Action/Adventure	M	MP2 Games
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
