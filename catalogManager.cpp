@@ -119,7 +119,8 @@ linked_list& CatalogManager::searchWishlist(std::string s) {
     return filteredCatalog;
 }
 
-/* sorts the linked list by changing next pointers (not data) */
+/* Implementation from https://www.geeksforgeeks.org/merge-sort-for-linked-list/
+sorts the linked list by changing next pointers (not data) */
 void MergeSort(game** headRef, int type)
 {
     game* head = *headRef;
@@ -142,7 +143,7 @@ void MergeSort(game** headRef, int type)
     *headRef = SortedMerge(a, b, type);
 }
 
-/* See https:// www.geeksforgeeks.org/?p=3622 for details of this
+/* See https://www.geeksforgeeks.org/?p=3622 for details of this
 function */
 game* SortedMerge(game* a, game* b, int type)
 {
