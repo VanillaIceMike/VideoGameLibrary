@@ -37,10 +37,12 @@ public:
     void OnWishListButton(wxCommandEvent& event);
     void OnGameRightClick(wxContextMenuEvent& event);
     void OnAddToWishList(wxCommandEvent& event);
+    void OnRemoveFromWishList(wxCommandEvent& event);
     void OnAddToBlackList(wxCommandEvent& event);
+    void OnRemoveFromBlackList(wxCommandEvent& event);
     void LoadGames();
 
-
+    int page = 0;
     wxTextCtrl* VGLEditBox;
     wxChoice* genreChoice;
     wxMenuBar* VGLMenu;
@@ -75,8 +77,9 @@ enum
     BUTTON_Go,
     LISTBOX_GameList,
     ID_AddToWishList,
-    ID_AddToBlackList
-
+    ID_RemoveFromWishList,
+    ID_AddToBlackList,
+    ID_RemoveFromBlackList
 };
 
 BEGIN_EVENT_TABLE(VGLFrame, wxFrame)

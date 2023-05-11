@@ -14,7 +14,8 @@ GenreFrame::GenreFrame(const wxString& title, const wxString& genre, CatalogMana
 
 
 void GenreFrame::LoadGamesByGenre() {
-    linked_list& catalog = catalogManager.getCatalog();
+    linked_list catalog;
+    catalog = catalogManager.getCatalog();
     unsigned catalogSize = catalog.listSize();
 
     for (unsigned i = 0; i < catalogSize; i++) {
