@@ -31,7 +31,7 @@ public:
     void CloseFile(wxCommandEvent& event);
     void OnGoButton(wxCommandEvent& event);
     void OnGameSelected(wxCommandEvent& event);
-    //void OnHomeButton(wxCommandEvent& event);
+    void OnHomeButton(wxCommandEvent& event);
     void OnBlackListButton(wxCommandEvent& event);
     void OnWishListButton(wxCommandEvent& event);
     void LoadGames();

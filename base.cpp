@@ -242,6 +242,13 @@ void VGLFrame::OnBlackListButton(wxCommandEvent& WXUNUSED(event))
 	wxMessageBox("Blacklist button clicked", "Info", wxOK | wxICON_INFORMATION);
 }
 
+void VGLFrame::OnHomeButton(wxCommandEvent& WXUNUSED(event))
+{
+	// Update the homepage with wishlist information
+	// ... (your code here)
+	wxMessageBox("Home button clicked", "Info", wxOK | wxICON_INFORMATION);
+}
+
 void VGLFrame::LoadGames() {
 	linked_list& catalog = catalogManager.getCatalog();
 	unsigned catalogSize = catalog.listSize();
