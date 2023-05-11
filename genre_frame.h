@@ -14,4 +14,3 @@ private:
 };
 
 #endif // __GENRE_FRAME_H
-

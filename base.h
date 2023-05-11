@@ -2,6 +2,13 @@
 #define __BASE_H
 #include <wx/frame.h>
 #include <wx/textctrl.h>
+#include <wx/listbox.h>
+#include <wx/stattext.h>
+#include <wx/sizer.h>
+#include <wx/button.h>
+//#include <wx/searchctrl.h>
+#include <wx/font.h>
+#include <wx/notebook.h>
 #include "catalogManager.h"
 #include "genre_frame.h"
 
@@ -23,6 +30,12 @@ public:
     void SaveFileAs(wxCommandEvent& event);
     void CloseFile(wxCommandEvent& event);
     void OnGoButton(wxCommandEvent& event);
+    //void OnGameSelected(wxCommandEvent& event);
+    //void OnHomeButton(wxCommandEvent& event);
+    void OnBlackListButton(wxCommandEvent& event);
+    void OnWishListButton(wxCommandEvent& event);
+    //void LoadGames();
+
 
     wxTextCtrl* VGLEditBox;
     wxChoice* genreChoice;
@@ -30,9 +43,16 @@ public:
     // The Path to the file we have open
     wxString CurrentDocPath;
     wxButton* homeButton;
+    wxButton* wishListButton;
+    wxButton* blackListButton;
     wxButton* goButton;
     wxSearchCtrl* searchBar;
     CatalogManager catalogManager;
+    wxListBox* gameListBox;
+    wxNotebook* book;
+    wxPanel* homePanel;
+    wxPanel* wishlistPanel;
+    wxPanel* blacklistPanel;
     DECLARE_EVENT_TABLE()
 };
 
@@ -45,8 +65,12 @@ enum
     MENU_Save,
     MENU_SaveAs,
     MENU_Quit,
-    BUTTON_Home = wxID_HIGHEST + 1,
-    BUTTON_Go = wxID_HIGHEST + 2
+    BUTTON_Home,
+    BUTTON_WishList,
+    BUTTON_BlackList,
+    BUTTON_Go,
+    LISTBOX_GameList
+
 };
 
 BEGIN_EVENT_TABLE(VGLFrame, wxFrame)
@@ -57,6 +81,7 @@ BEGIN_EVENT_TABLE(VGLFrame, wxFrame)
     EVT_MENU(MENU_SaveAs, VGLFrame::SaveFileAs)
     EVT_MENU(MENU_Quit, VGLFrame::Quit)
     EVT_BUTTON(BUTTON_Go, VGLFrame::OnGoButton)
+    //EVT_LISTBOX(LISTBOX_GameList, VGLFrame::OnGameSelected)
 END_EVENT_TABLE()
 
 #endif

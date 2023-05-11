@@ -104,6 +104,7 @@ void linked_list::swap(unsigned first, unsigned second) {
     (*this)[second] = temp;
 }
 
-game*& linked_list::getHead() const {
+game*& linked_list::getHead()
+{
     return head;
 }

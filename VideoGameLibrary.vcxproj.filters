@@ -1,68 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Fonts">
-      <UniqueIdentifier>{0871a952-ea1c-4378-9c70-d2154ddc01c5}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="base.cpp" />
+    <ClCompile Include="catalogManager.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="gameSpec.cpp" />
+    <ClCompile Include="genre_frame.cpp" />
+    <ClCompile Include="linked_list.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="catalogManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="base.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gameSpec.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="genre_frame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="linked_list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="base.h" />
+    <ClInclude Include="catalogManager.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="gameSpec.h" />
+    <ClInclude Include="genre_frame.h" />
+    <ClInclude Include="linked_list.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="base.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="genre_frame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="catalogManager.cpp">
-<<<<<<< HEAD
-=======
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gameSpec.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="linked_list.cpp">
->>>>>>> a2ae984c5e20d2eafe7e5f146127829d0b178d91
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="catalogManager.exe" />
+    <None Include="linkedlist.exe" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="..\..\..\..\..\..\..\Downloads\press_start_2p\PressStart2P.ttf">
-      <Filter>Fonts</Filter>
-    </Font>
+    <Text Include="games.txt" />
   </ItemGroup>
 </Project>

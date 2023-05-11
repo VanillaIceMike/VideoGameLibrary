@@ -71,9 +71,28 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 	titleLabel->SetFont(titleFont);
 	mainSizer->Add(titleLabel, 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 10);
 
+	// Create a wxBoxSizer for horizontal alignment of buttons
+	wxBoxSizer* buttonSizer = new wxBoxSizer(wxHORIZONTAL);
+
 	// Create the Home button and add it to the mainSizer
 	homeButton = new wxButton(this, BUTTON_Home, wxT("Home"), wxDefaultPosition, wxDefaultSize, 0);
-	mainSizer->Add(homeButton, 0, wxALL, 5);
+	buttonSizer->Add(homeButton, 0, wxALL, 5);
+
+	// Create the Wishlist button and add it to the mainSizer
+	wishListButton = new wxButton(this, BUTTON_WishList, wxT("Wishlist"), wxDefaultPosition, wxDefaultSize, 0);
+	buttonSizer->Add(wishListButton, 0, wxALL, 5);
+
+	// Create the Blacklist button and add it to the mainSizer
+	blackListButton = new wxButton(this, BUTTON_BlackList, wxT("Blacklist"), wxDefaultPosition, wxDefaultSize, 0);
+	buttonSizer->Add(blackListButton, 0, wxALL, 5);
+
+	// Add the buttonSizer to the mainSizer
+	mainSizer->Add(buttonSizer, 0, wxALL | wxALIGN_CENTER_HORIZONTAL, 10);
+
+	// Bind events to custom functions
+	Bind(wxEVT_BUTTON, &VGLFrame::OnWishListButton, this, BUTTON_WishList);
+	Bind(wxEVT_BUTTON, &VGLFrame::OnBlackListButton, this, BUTTON_BlackList);
+
 
 	// Create a wxBoxSizer for horizontal alignment of genre label and dropdown menu
 	wxBoxSizer* genreSizer = new wxBoxSizer(wxHORIZONTAL);
@@ -107,6 +126,7 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 	// Add the search control
 	wxSearchCtrl* searchBar = new wxSearchCtrl(this, wxID_ANY);
 	genreSizer->Add(searchBar, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
+
 
 	Maximize(); // Maximize the window
 }
@@ -202,4 +222,18 @@ void VGLFrame::OnGoButton(wxCommandEvent& WXUNUSED(event))
 	{
 		wxMessageBox(wxT("Please select a genre."), wxT("Error"), wxICON_ERROR | wxOK);
 	}
+}
+
+void VGLFrame::OnWishListButton(wxCommandEvent& WXUNUSED(event))
+{
+	// Update the homepage with wishlist information
+	// ... (your code here)
+	wxMessageBox("Wishlist button clicked", "Info", wxOK | wxICON_INFORMATION);
+}
+
+void VGLFrame::OnBlackListButton(wxCommandEvent& WXUNUSED(event))
+{
+	// Update the homepage with blacklist information
+	// ... (your code here)
+	wxMessageBox("Blacklist button clicked", "Info", wxOK | wxICON_INFORMATION);
 }
