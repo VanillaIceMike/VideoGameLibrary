@@ -30,11 +30,11 @@ public:
     void SaveFileAs(wxCommandEvent& event);
     void CloseFile(wxCommandEvent& event);
     void OnGoButton(wxCommandEvent& event);
-    //void OnGameSelected(wxCommandEvent& event);
+    void OnGameSelected(wxCommandEvent& event);
     //void OnHomeButton(wxCommandEvent& event);
     void OnBlackListButton(wxCommandEvent& event);
     void OnWishListButton(wxCommandEvent& event);
-    //void LoadGames();
+    void LoadGames();
 
 
     wxTextCtrl* VGLEditBox;
@@ -81,7 +81,7 @@ BEGIN_EVENT_TABLE(VGLFrame, wxFrame)
     EVT_MENU(MENU_SaveAs, VGLFrame::SaveFileAs)
     EVT_MENU(MENU_Quit, VGLFrame::Quit)
     EVT_BUTTON(BUTTON_Go, VGLFrame::OnGoButton)
-    //EVT_LISTBOX(LISTBOX_GameList, VGLFrame::OnGameSelected)
+    EVT_LISTBOX(LISTBOX_GameList, VGLFrame::OnGameSelected)
 END_EVENT_TABLE()
 
 #endif

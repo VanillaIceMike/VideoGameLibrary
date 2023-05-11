@@ -127,6 +127,10 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 	wxSearchCtrl* searchBar = new wxSearchCtrl(this, wxID_ANY);
 	genreSizer->Add(searchBar, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
 
+	gameListBox = new wxListBox(this, LISTBOX_GameList, wxDefaultPosition, wxDefaultSize, 0, NULL, wxLB_SINGLE);
+	mainSizer->Add(gameListBox, 1, wxALL | wxEXPAND, 5);
+
+	LoadGames();
 
 	Maximize(); // Maximize the window
 }
@@ -236,4 +240,54 @@ void VGLFrame::OnBlackListButton(wxCommandEvent& WXUNUSED(event))
 	// Update the homepage with blacklist information
 	// ... (your code here)
 	wxMessageBox("Blacklist button clicked", "Info", wxOK | wxICON_INFORMATION);
+}
+
+void VGLFrame::LoadGames() {
+	linked_list& catalog = catalogManager.getCatalog();
+	unsigned catalogSize = catalog.listSize();
+
+	for (unsigned i = 0; i < catalogSize; i++) {
+		game currentGame = catalog[i];
+		gameListBox->Append(currentGame.getName());
+	}
+}
+
+void VGLFrame::OnGameSelected(wxCommandEvent& event)
+{
+	int selectedGameIndex = gameListBox->GetSelection();
+	if (selectedGameIndex != wxNOT_FOUND)
+	{
+		game selectedGame = catalogManager.getCatalog()[selectedGameIndex];
+		wxString gameTitle = selectedGame.getName();
+
+		// Create a new wxFrame and display the game title on it
+		wxFrame* gameFrame = new wxFrame(NULL, wxID_ANY, gameTitle, wxDefaultPosition, wxSize(400, 300));
+
+		// Create a wxBoxSizer for vertical alignment of widgets
+		wxBoxSizer* gameInfoSizer = new wxBoxSizer(wxVERTICAL);
+
+		// Display game specs
+		gameSpec specs = selectedGame.getSpecs();
+		wxString console = specs.getConsole();
+		wxString genre = specs.getGenre();
+		wxString esrbRating = specs.getEsrbRating();
+		wxString developer = specs.getDeveloper();
+		wxString price = wxString::Format(wxT("%.2f"), selectedGame.getPrice());
+
+		wxStaticText* consoleLabel = new wxStaticText(gameFrame, wxID_ANY, wxT("Console: ") + console);
+		wxStaticText* genreLabel = new wxStaticText(gameFrame, wxID_ANY, wxT("Genre: ") + genre);
+		wxStaticText* esrbRatingLabel = new wxStaticText(gameFrame, wxID_ANY, wxT("ESRB Rating: ") + esrbRating);
+		wxStaticText* developerLabel = new wxStaticText(gameFrame, wxID_ANY, wxT("Developer: ") + developer);
+		wxStaticText* priceLabel = new wxStaticText(gameFrame, wxID_ANY, wxT("Price: $") + price);
+
+		gameInfoSizer->Add(consoleLabel, 0, wxALL, 5);
+		gameInfoSizer->Add(genreLabel, 0, wxALL, 5);
+		gameInfoSizer->Add(esrbRatingLabel, 0, wxALL, 5);
+		gameInfoSizer->Add(developerLabel, 0, wxALL, 5);
+		gameInfoSizer->Add(priceLabel, 0, wxALL, 5);
+
+		gameFrame->SetSizer(gameInfoSizer);
+		gameFrame->Layout();
+		gameFrame->Show(true);
+	}
 }
