@@ -44,6 +44,12 @@ void CatalogManager::addToBlacklist(game g) {
     for (unsigned j = 0; j < catalog.listSize(); j++) {
         if (catalog[j].getName() == g.getName()) {
             catalog.remove(j);
+            break;
+        }
+    }
+    for (unsigned j = 0; j < wishlist.listSize(); j++) {
+        if (wishlist[j].getName() == g.getName()) {
+            wishlist.remove(j);
             return;
         }
     }

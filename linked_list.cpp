@@ -38,7 +38,6 @@ void linked_list::clearList() {
 }
 
 game& linked_list::operator[](unsigned n) const {
-    if (n >= length) return *head;
     game* runner = head;
     for (unsigned i = 0; i < n; i++) runner = runner->next;
     return *runner;

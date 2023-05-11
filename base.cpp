@@ -90,7 +90,7 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 	// Bind events to custom functions
 	Bind(wxEVT_BUTTON, &VGLFrame::OnWishListButton, this, BUTTON_WishList);
 	Bind(wxEVT_BUTTON, &VGLFrame::OnBlackListButton, this, BUTTON_BlackList);
-
+	Bind(wxEVT_BUTTON, &VGLFrame::OnHomeButton, this, BUTTON_Home);
 
 	// Create a wxBoxSizer for horizontal alignment of genre label and dropdown menu
 	wxBoxSizer* genreSizer = new wxBoxSizer(wxHORIZONTAL);
@@ -122,7 +122,7 @@ VGLFrame::VGLFrame(const wxString& title, const wxPoint& pos, const wxSize& size
 	genreSizer->Add(goButton, 0, wxALL, 5);
 
 	// Add the search control
-	wxSearchCtrl* searchBar = new wxSearchCtrl(this, wxID_ANY);
+	searchBar = new wxSearchCtrl(this, wxID_ANY);
 	searchBar->ShowSearchButton(true);
 	genreSizer->Add(searchBar, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
 
@@ -233,34 +233,68 @@ void VGLFrame::OnGoButton(wxCommandEvent& WXUNUSED(event))
 
 void VGLFrame::OnWishListButton(wxCommandEvent& WXUNUSED(event))
 {
-	// Update the homepage with wishlist information
-	// ... (your code here)
-	wxMessageBox("Wishlist button clicked", "Info", wxOK | wxICON_INFORMATION);
+	page = 1;
+	linked_list catalog;
+	catalog = catalogManager.getWishlist();
+	unsigned catalogSize = catalog.listSize();
+
+	gameListBox->Clear();
+
+	for (unsigned i = 0; i < catalogSize; i++) {
+		game currentGame = catalog[i];
+		gameListBox->Append(currentGame.getName());
+	}
 }
 
 void VGLFrame::OnBlackListButton(wxCommandEvent& WXUNUSED(event))
 {
-	// Update the homepage with blacklist information
-	// ... (your code here)
-	wxMessageBox("Blacklist button clicked", "Info", wxOK | wxICON_INFORMATION);
+	page = 2;
+	linked_list catalog;
+	catalog = catalogManager.getBlacklist();
+	unsigned catalogSize = catalog.listSize();
+
+	gameListBox->Clear();
+
+	for (unsigned i = 0; i < catalogSize; i++) {
+		game currentGame = catalog[i];
+		gameListBox->Append(currentGame.getName());
+	}
 }
 
 void VGLFrame::OnHomeButton(wxCommandEvent& WXUNUSED(event))
 {
-	// Update the homepage with wishlist information
-	// ... (your code here)
-	wxMessageBox("Home button clicked", "Info", wxOK | wxICON_INFORMATION);
+	page = 0;
+	linked_list catalog;
+	catalog = catalogManager.getCatalog();
+	unsigned catalogSize = catalog.listSize();
+
+	gameListBox->Clear();
+
+	for (unsigned i = 0; i < catalogSize; i++) {
+		game currentGame = catalog[i];
+		gameListBox->Append(currentGame.getName());
+	}
 }
 
 void VGLFrame::OnSearchButton(wxCommandEvent& WXUNUSED(event))
 {
-	// Update the homepage with wishlist information
-	// ... (your code here)
-	wxMessageBox("Home button clicked", "Info", wxOK | wxICON_INFORMATION);
+	linked_list catalog;
+	if (page == 0) catalog = catalogManager.searchCatalog(searchBar->GetValue().ToStdString());
+	else if (page == 1) catalog = catalogManager.searchWishlist(searchBar->GetValue().ToStdString());
+	else catalog = catalogManager.searchBlacklist(searchBar->GetValue().ToStdString());
+	unsigned catalogSize = catalog.listSize();
+
+	gameListBox->Clear();
+
+	for (unsigned i = 0; i < catalogSize; i++) {
+		game currentGame = catalog[i];
+		gameListBox->Append(currentGame.getName());
+	}
 }
 
 void VGLFrame::LoadGames() {
-	linked_list& catalog = catalogManager.getCatalog();
+	linked_list catalog;
+	catalog = catalogManager.getCatalog();
 	unsigned catalogSize = catalog.listSize();
 
 	for (unsigned i = 0; i < catalogSize; i++) {
@@ -317,12 +351,16 @@ void VGLFrame::OnGameRightClick(wxContextMenuEvent& event)
 	{
 		// Create a popup menu
 		wxMenu contextMenu;
-		contextMenu.Append(ID_AddToWishList, wxT("Add to Wishlist"));
-		contextMenu.Append(ID_AddToBlackList, wxT("Add to Blacklist"));  // Added Blacklist option
+		if (page != 1) contextMenu.Append(ID_AddToWishList, wxT("Add to Wishlist"));
+		else contextMenu.Append(ID_RemoveFromWishList, wxT("Remove from Wishlist"));
+		if (page != 2) contextMenu.Append(ID_AddToBlackList, wxT("Add to Blacklist"));  // Added Blacklist option
+		else contextMenu.Append(ID_RemoveFromBlackList, wxT("Remove from Blacklist"));
 
 		// Bind the menu item to an event handler
-		contextMenu.Bind(wxEVT_MENU, &VGLFrame::OnAddToWishList, this, ID_AddToWishList);
-		contextMenu.Bind(wxEVT_MENU, &VGLFrame::OnAddToBlackList, this, ID_AddToBlackList);  // Bind Blacklist option
+		if (page != 1) contextMenu.Bind(wxEVT_MENU, &VGLFrame::OnAddToWishList, this, ID_AddToWishList);
+		else contextMenu.Bind(wxEVT_MENU, &VGLFrame::OnRemoveFromWishList, this, ID_RemoveFromWishList);
+		if (page != 2) contextMenu.Bind(wxEVT_MENU, &VGLFrame::OnAddToBlackList, this, ID_AddToBlackList);  // Bind Blacklist option
+		else contextMenu.Bind(wxEVT_MENU, &VGLFrame::OnRemoveFromBlackList, this, ID_RemoveFromBlackList);
 
 		// Popup the menu
 		PopupMenu(&contextMenu);
@@ -334,8 +372,45 @@ void VGLFrame::OnAddToWishList(wxCommandEvent& event)
 	int selectedGameIndex = gameListBox->GetSelection();
 	if (selectedGameIndex != wxNOT_FOUND)
 	{
-		game selectedGame = catalogManager.getCatalog()[selectedGameIndex];
-		// Add the selected game to the wishlist
+		game selectedGame;
+		if (page == 0) selectedGame = catalogManager.getCatalog()[selectedGameIndex];
+		else {
+			selectedGame = catalogManager.getBlacklist()[selectedGameIndex];
+			catalogManager.getBlacklist().remove(selectedGameIndex);
+		}
+
+		catalogManager.addToWishlist(selectedGame);
+
+		linked_list catalog;
+		if (page == 0) catalog = catalogManager.getCatalog();
+		else catalog = catalogManager.getBlacklist();
+		unsigned catalogSize = catalog.listSize();
+
+		gameListBox->Clear();
+
+		for (unsigned i = 0; i < catalogSize; i++) {
+			game currentGame = catalog[i];
+			gameListBox->Append(currentGame.getName());
+		}
+	}
+}
+
+void VGLFrame::OnRemoveFromWishList(wxCommandEvent& event) {
+	int selectedGameIndex = gameListBox->GetSelection();
+	if (selectedGameIndex != wxNOT_FOUND)
+	{
+		catalogManager.getWishlist().remove(selectedGameIndex);
+
+		linked_list catalog;
+		catalog = catalogManager.getWishlist();
+		unsigned catalogSize = catalog.listSize();
+
+		gameListBox->Clear();
+
+		for (unsigned i = 0; i < catalogSize; i++) {
+			game currentGame = catalog[i];
+			gameListBox->Append(currentGame.getName());
+		}
 	}
 }
 
@@ -344,7 +419,41 @@ void VGLFrame::OnAddToBlackList(wxCommandEvent& event)
 	int selectedGameIndex = gameListBox->GetSelection();
 	if (selectedGameIndex != wxNOT_FOUND)
 	{
-		game selectedGame = catalogManager.getCatalog()[selectedGameIndex];
-		// Add the selected game to the wishlist
+		game selectedGame;
+		if (page == 0) selectedGame = catalogManager.getCatalog()[selectedGameIndex];
+		else selectedGame = catalogManager.getWishlist()[selectedGameIndex];
+		catalogManager.addToBlacklist(selectedGame);
+
+		linked_list catalog;
+		if (page == 0) catalog = catalogManager.getCatalog();
+		else catalog = catalogManager.getWishlist();
+		unsigned catalogSize = catalog.listSize();
+
+		gameListBox->Clear();
+
+		for (unsigned i = 0; i < catalogSize; i++) {
+			game currentGame = catalog[i];
+			gameListBox->Append(currentGame.getName());
+		}
+	}
+}
+
+void VGLFrame::OnRemoveFromBlackList(wxCommandEvent& event) {
+	int selectedGameIndex = gameListBox->GetSelection();
+	if (selectedGameIndex != wxNOT_FOUND)
+	{
+		catalogManager.addToCatalog(catalogManager.getBlacklist()[selectedGameIndex]);
+		catalogManager.getBlacklist().remove(selectedGameIndex);
+
+		linked_list catalog;
+		catalog = catalogManager.getBlacklist();
+		unsigned catalogSize = catalog.listSize();
+
+		gameListBox->Clear();
+
+		for (unsigned i = 0; i < catalogSize; i++) {
+			game currentGame = catalog[i];
+			gameListBox->Append(currentGame.getName());
+		}
 	}
 }
